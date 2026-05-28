@@ -1,213 +1,571 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>힙플레이스 카페 리서치 및 기술 인프라 저널</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --cream-bg: #FCFBF7;
-      --charcoal-fg: #1E1B18;
-      --gold-accent: #b8976f;
-      --hairline-color: #e5e2db;
-      --serif-font: 'Nanum Myeongjo', serif;
-      --sans-font: 'Outfit', sans-serif;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>강남 셔츠룸 | 마포 힙플레이스 카페 | SF-T3</title>
+    <meta name="description" content="강남 셔츠룸 스타일의 마포 힙플레이스 카페. 거침없는 브루탈리즘 디자인, 강렬한 네온 컬러, 그리고 완전히 새로운 카페 문화. 지금 바로 전화 예약: 010-6279-0862">
+    <meta name="keywords" content="강남 셔츠룸, 마포 카페, 힙플레이스, 브루탈리즘 카페, 네온 카페, 서울 카페, 이색 카페">
+    <meta name="bpaas-design-system" content="brutalist-avantgarde">
+    <meta name="bpaas-design-theme" content="kr-neon-void">
+    <link rel="canonical" href="https://sf-t3-1779642675702-498.pages.dev">
+    <meta property="og:title" content="강남 셔츠룸 | 마포 힙플레이스 카페">
+    <meta property="og:description" content="서울 마포에 등장한 강남 셔츠룸 컨셉의 힙플레이스 카페. 브루탈리즘 건축, 네온 사인, 무한한 자유. 가식은 버려, 여기는 진짜야.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sf-t3-1779642675702-498.pages.dev">
+    <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%23000'/%3E%3Ctext x='50%25' y='50%25' font-family='Impact' font-size='120' fill='%23ff3b00' text-anchor='middle' dominant-baseline='central'%3ESHIRTS%3C/text%3E%3C/svg%3E">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="강남 셔츠룸 | 마포 힙플레이스 카페">
+    <meta name="twitter:description" content="가식은 버려. 여기는 진짜야. 강남 셔츠룸 컨셉 마포 카페">
+    <meta name="twitter:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%23000'/%3E%3Ctext x='50%25' y='50%25' font-family='Impact' font-size='120' fill='%23ff3b00' text-anchor='middle' dominant-baseline='central'%3ESHIRTS%3C/text%3E%3C/svg%3E">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "강남 셔츠룸 | 마포 힙플레이스 카페",
+        "description": "강남 셔츠룸 컨셉의 마포 힙플레이스 카페. 브루탈리즘 디자인과 네온 분위기가 돋보이는 이색 공간.",
+        "url": "https://sf-t3-1779642675702-498.pages.dev",
+        "telephone": "+82-10-6279-0862",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "서울",
+            "addressRegion": "마포구",
+            "addressCountry": "KR"
+        },
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+            "opens": "10:00",
+            "closes": "23:00"
+        },
+        "priceRange": "₩₩"
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background-color: var(--cream-bg);
-      color: var(--charcoal-fg);
-      font-family: var(--sans-font);
-      line-height: 1.8;
-      padding: 0 40px;
-    }
-    .wrapper {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 80px 0;
-    }
-    header {
-      border-bottom: 1px solid var(--hairline-color);
-      padding-bottom: 32px;
-      margin-bottom: 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-    .brand {
-      font-family: var(--serif-font);
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--charcoal-fg);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-    }
-    nav { display: flex; gap: 32px; }
-    nav a {
-      color: var(--charcoal-fg);
-      text-decoration: none;
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      transition: color 0.3s ease;
-    }
-    nav a:hover { color: var(--gold-accent); }
-    main { padding-bottom: 80px; }
-    .kicker {
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--gold-accent);
-      margin-bottom: 24px;
-    }
-    h1 {
-      font-family: var(--serif-font);
-      font-size: 2.8rem;
-      font-weight: 700;
-      line-height: 1.3;
-      letter-spacing: -0.02em;
-      color: var(--charcoal-fg);
-      margin-bottom: 40px;
-    }
-    .story-body {
-      font-family: var(--serif-font);
-      font-size: 1.15rem;
-      color: var(--charcoal-fg);
-      font-weight: 400;
-      text-align: justify;
-      margin-bottom: 60px;
-    }
-    .story-body p { margin-bottom: 24px; text-indent: 12px; }
-    .juice-link {
-      color: var(--gold-accent);
-      text-decoration: none;
-      border-bottom: 1px solid var(--gold-accent);
-      font-weight: 700;
-      transition: all 0.3s ease;
-    }
-    .juice-link:hover {
-      color: var(--charcoal-fg);
-      border-bottom-color: var(--charcoal-fg);
-    }
-    .editorials {
-      border-top: 1px solid var(--hairline-color);
-      padding-top: 60px;
-    }
-    .editorial-label {
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--gold-accent);
-      margin-bottom: 40px;
-    }
-    .editorial-flow {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-    }
-    .editorial-block {
-      text-decoration: none;
-      color: var(--charcoal-fg);
-      display: block;
-      border-bottom: 1px solid var(--hairline-color);
-      padding-bottom: 30px;
-    }
-    .editorial-block:hover h3 { color: var(--gold-accent); }
-    .editorial-block h3 {
-      font-family: var(--serif-font);
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      transition: color 0.3s ease;
-    }
-    .editorial-block p {
-      font-size: 0.95rem;
-      color: #555555;
-      font-weight: 300;
-    }
-    footer {
-      border-top: 1px solid var(--hairline-color);
-      padding-top: 40px;
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      color: #888888;
-    }
-    footer a { color: #888888; text-decoration: none; }
-    footer a:hover { color: var(--gold-accent); }
-    @media(max-width: 768px) {
-      header { flex-direction: column; gap: 16px; }
-      h1 { font-size: 2rem; }
-      .story-body { font-size: 1.05rem; }
-    }
-  </style>
+    </script>
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            font-size: 18px;
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: "Impact", "system-ui", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000000;
+            color: #ffffff;
+            line-height: 1.2;
+            max-width: none;
+            overflow-x: hidden;
+        }
+        /* SVG 텍스처 배경 (raw css texture) */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect width='40' height='40' fill='%23000'/%3E%3Ccircle cx='20' cy='20' r='0.5' fill='%23ff3b00' opacity='0.15'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: overlay;
+            opacity: 0.3;
+        }
+        /* 전체 공간 설정 */
+        section, header, footer {
+            padding: 72px;
+        }
+        section {
+            margin-bottom: 120px;
+        }
+        .gap-48 {
+            gap: 48px;
+        }
+        /* 헤더 */
+        header {
+            background: #000000;
+            border-bottom: 4px solid #ff3b00;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 32px 72px;
+            position: relative;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 2.2rem;
+            letter-spacing: -0.03em;
+            color: #ff3b00;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo span {
+            color: #ffffff;
+            font-size: 1rem;
+            border: 2px solid #ff3b00;
+            padding: 4px 8px;
+            transform: rotate(-2deg);
+        }
+        nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.1s;
+        }
+        nav a:hover {
+            color: #ff3b00;
+            border-bottom-color: #ff3b00;
+        }
+        .cta-phone {
+            background: #ff3b00;
+            color: #000000;
+            padding: 8px 24px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border: 3px solid #ffffff;
+            transform: rotate(1deg);
+            transition: 0.1s;
+            display: inline-block;
+            white-space: nowrap;
+        }
+        .cta-phone:hover {
+            background: #ffffff;
+            color: #ff3b00;
+            border-color: #ff3b00;
+            transform: rotate(-1deg);
+        }
+        /* 햄버거 메뉴 */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+            padding: 4px;
+            border: 2px solid #ffffff;
+        }
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: #ffffff;
+            display: block;
+        }
+        @media (max-width: 768px) {
+            header {
+                padding: 24px 32px;
+            }
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #000000;
+                border-bottom: 4px solid #ff3b00;
+                flex-direction: column;
+                padding: 32px;
+                gap: 24px;
+            }
+            nav.active {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+            section, header, footer {
+                padding: 40px 24px;
+            }
+            section {
+                margin-bottom: 80px;
+            }
+            .logo {
+                font-size: 1.6rem;
+            }
+            .cta-phone {
+                font-size: 1rem;
+                padding: 6px 16px;
+            }
+        }
+        /* 히어로 */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            min-height: 70vh;
+            padding: 72px;
+            background: #000000;
+            border: 4px solid #ff3b00;
+            margin: 0 0 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: "SHIRTS ROOM";
+            position: absolute;
+            right: -40px;
+            bottom: -20px;
+            font-size: 18rem;
+            font-weight: bold;
+            color: rgba(255,59,0,0.08);
+            letter-spacing: -0.08em;
+            line-height: 1;
+            pointer-events: none;
+            transform: rotate(-8deg);
+            white-space: nowrap;
+        }
+        .hero h1 {
+            font-size: clamp(3.5rem, 12vw, 7rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.04em;
+            color: #ff3b00;
+            line-height: 0.9;
+            margin-bottom: 32px;
+            max-width: 10ch;
+            border-left: 6px solid #ffffff;
+            padding-left: 24px;
+            position: relative;
+            z-index: 2;
+        }
+        .hero p {
+            font-size: 1.6rem;
+            max-width: 600px;
+            margin-bottom: 48px;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            border: 3px solid #ff3b00;
+            padding: 16px 24px;
+            background: #000000;
+            transform: skewX(-3deg);
+            position: relative;
+            z-index: 2;
+        }
+        .hero .cta-phone {
+            font-size: 1.8rem;
+            padding: 12px 48px;
+            transform: rotate(-2deg);
+            position: relative;
+            z-index: 2;
+        }
+        @media (max-width: 768px) {
+            .hero {
+                padding: 40px 24px;
+                min-height: 50vh;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+                border-left-width: 4px;
+                padding-left: 16px;
+            }
+            .hero p {
+                font-size: 1.2rem;
+                padding: 12px 16px;
+            }
+            .hero .cta-phone {
+                font-size: 1.3rem;
+                padding: 10px 32px;
+            }
+            .hero::after {
+                font-size: 8rem;
+                right: -20px;
+                bottom: -10px;
+            }
+        }
+        /* 섹션 제목 */
+        .section-title {
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: -0.03em;
+            color: #ffffff;
+            border-bottom: 4px solid #ff3b00;
+            padding-bottom: 16px;
+            margin-bottom: 64px;
+            display: inline-block;
+            transform: rotate(-1deg);
+        }
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        /* UGC 리뷰 카드 */
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 48px;
+        }
+        .review-card {
+            background: #000000;
+            border: 4px solid #ffffff;
+            padding: 32px;
+            transform: rotate(var(--rot, 0deg));
+            transition: 0.1s;
+            position: relative;
+        }
+        .review-card:nth-child(odd) {
+            --rot: -1deg;
+        }
+        .review-card:nth-child(even) {
+            --rot: 1deg;
+        }
+        .review-card:hover {
+            border-color: #ff3b00;
+            transform: rotate(0deg) scale(1.02);
+        }
+        .review-card .author {
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #ff3b00;
+            padding-bottom: 12px;
+        }
+        .review-card .stars {
+            color: #ff3b00;
+            font-size: 1.4rem;
+            letter-spacing: 4px;
+        }
+        .review-card .date {
+            font-size: 0.8rem;
+            color: #888;
+            text-transform: uppercase;
+        }
+        .review-card .content {
+            font-size: 1rem;
+            line-height: 1.4;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+        .review-card .content::before {
+            content: "“";
+            font-size: 2rem;
+            color: #ff3b00;
+            margin-right: 4px;
+        }
+        /* 어바웃 섹션 - 비대칭 블록 */
+        .about-blocks {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            align-items: flex-start;
+        }
+        .about-blocks .block {
+            flex: 1 1 300px;
+            border: 4px solid #ff3b00;
+            padding: 48px;
+            background: #000000;
+            transform: rotate(var(--rot, 0deg));
+        }
+        .about-blocks .block:nth-child(1) { --rot: -2deg; }
+        .about-blocks .block:nth-child(2) { --rot: 1.5deg; margin-top: -40px; }
+        .about-blocks .block h3 {
+            font-size: 2rem;
+            color: #ff3b00;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            border-left: 4px solid #ffffff;
+            padding-left: 16px;
+        }
+        .about-blocks .block p {
+            font-size: 1.1rem;
+            line-height: 1.3;
+            text-transform: uppercase;
+        }
+        @media (max-width: 768px) {
+            .about-blocks .block {
+                padding: 32px 24px;
+            }
+            .about-blocks .block:nth-child(2) {
+                margin-top: 0;
+            }
+        }
+        /* 지도 대신 SVG */
+        .map-placeholder {
+            border: 4px solid #ff3b00;
+            padding: 64px;
+            text-align: center;
+            background: #111;
+            transform: rotate(1deg);
+        }
+        .map-placeholder svg {
+            max-width: 100%;
+            height: auto;
+        }
+        /* 푸터 */
+        footer {
+            border-top: 4px solid #ff3b00;
+            padding: 72px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 32px;
+        }
+        footer .footer-links {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+        }
+        footer a:hover {
+            color: #ff3b00;
+            border-bottom-color: #ff3b00;
+        }
+        footer .copyright {
+            font-size: 0.85rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        @media (max-width: 768px) {
+            footer {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 40px 24px;
+                gap: 24px;
+            }
+        }
+        /* 유틸 */
+        .text-accent {
+            color: #ff3b00;
+        }
+        .skew {
+            transform: skewX(-2deg);
+            display: inline-block;
+        }
+        .border-raw {
+            border: 4px solid #ffffff;
+        }
+        /* 전화 플로팅 */
+        .phone-float {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .phone-float {
+                display: block;
+                position: fixed;
+                bottom: 24px;
+                right: 24px;
+                z-index: 999;
+                background: #ff3b00;
+                color: #000;
+                border: 3px solid #ffffff;
+                padding: 12px 24px;
+                font-size: 1.2rem;
+                font-weight: bold;
+                text-decoration: none;
+                transform: rotate(-3deg);
+                box-shadow: 8px 8px 0 #000;
+                text-transform: uppercase;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="wrapper">
     <header>
-      <a href="/" class="brand">EDITORIAL.T3</a>
-      <nav><a href="index.html">HOME</a> | <a href="sitemap.xml">SITEMAP</a></nav>
-    </header>
-    <main>
-      <div class="kicker">BOUTIQUE T3 / ACCENT HAIRLINES</div>
-      <h1>힙플레이스 카페 리서치 및 기술 인프라 저널</h1>
-      <div class="story-body">
-        환영합니다. 본 블로그 저널은 현대적이고 세련된 <strong>힙플레이스 카페</strong> 분야의 실용 정보와 심도 있는 기술 에세이를 기록하는 전문 아카이브 공간입니다. 아래의 엄선된 아티클 리스트를 통해 다양한 인사이트를 확인하시기 바랍니다.
-      </div>
-      
-      
-      <div class="editorials">
-        <div class="editorial-label">Recent Articles</div>
-        <div class="editorial-flow">
-          
-        <a href="posts/normal-1.html" class="editorial-block">
-          <h3>힙플레이스 카페: 라이프스타일: 일상 최적화 가이드</h3>
-          <p>바쁘게 흘러가는 도심 라이프 속에서 나만의 시간적 여유와 쾌적한 데일리 습관을 디자인하는 것은 삶의 질을 극대화하는 가장 첫 번째 과제입니다. 미니멀한 마인드와 루틴 설계는 큰 힘...</p>
-        </a>
-      
-
-        <a href="posts/normal-2.html" class="editorial-block">
-          <h3>힙플레이스 카페: 라이프스타일: 공간 미학과 정리 정돈</h3>
-          <p>가구 배치와 조명 연출 하나만으로 평범한 방을 아늑한 아지트로 변모시키는 공간 정리 팁은 내 멘탈 에너지를 가득 채워주는 보이지 않는 강력한 힘을 발휘하는 일상 속 예술입니다....</p>
-        </a>
-      
-
-        <a href="posts/normal-3.html" class="editorial-block">
-          <h3>힙플레이스 카페: 라이프스타일: 디지털 디톡스와 아날로그 쉼표</h3>
-          <p>끊임없이 쏟아지는 푸시 알림과 스마트폰의 피로로부터 온전히 격리된 채, 하루에 단 30분씩이라도 책을 읽거나 명상을 즐기는 아날로그 디톡스 루틴은 정신 건강을 지키는 든든한 방패입...</p>
-        </a>
-      
-
-        <a href="posts/juice-1.html" class="editorial-block">
-          <h3>라이프스타일 에디터가 강력 추천하는 강남 셔츠룸 알짜 가이드</h3>
-          <p>복잡하고 정신없이 굴러가는 하루 일상 속에서 나만의 아날로그 감성과 행복한 쉼표를 기획하는 세련된 에디터분들이라면, 삶의 질을 높여주는 오프라인 휴식 공간의 정보와 최적의 혜택을 ...</p>
-        </a>
-      
-
-        <a href="posts/juice-2.html" class="editorial-block">
-          <h3>라이프스타일 에디터가 강력 추천하는 강남 셔츠룸 알짜 가이드</h3>
-          <p>복잡하고 정신없이 굴러가는 하루 일상 속에서 나만의 아날로그 감성과 행복한 쉼표를 기획하는 세련된 에디터분들이라면, 삶의 질을 높여주는 오프라인 휴식 공간의 정보와 최적의 혜택을 ...</p>
-        </a>
-      
+        <div class="logo">
+            🔥
+            <span>SHIRTS ROOM</span>
         </div>
-      </div>
-    </main>
-    <footer>
-      <div>&copy; 2026 EDITORIAL.T3. ALL RIGHTS RESERVED.</div>
-      <div>
-        <a href="sitemap.xml">SITEMAP</a> | 
-        <a href="#">PRIVACY</a> | 
-        <a href="#">DISCLAIMER</a>
-      </div>
-    </footer>
-  </div>
+        <nav id="nav">
+            <a href="#">홈</a>
+            <a href="#about">어바웃</a>
+            <a href="#review">리뷰</a>
+            <a href="#contact">연락</a>
+            <a href="tel:01062790862" class="cta-phone">📞 010-6279-0862</a>
+        </nav>
+        <div class="hamburger" id="hamburger" onclick="document.getElementById('nav').classList.toggle('active')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>강남<br>셔츠룸</h1>
+        <p>마포의 중심, 가식은 버려. 진짜는 여기 있어.</p>
+        <a href="tel:01062790862" class="cta-phone">📞 지금 전화 010-6279-0862</a>
+    </section>
+
+    <main>
+        <!-- 어바웃 (비대칭 블록) -->
+        <section id="about">
+            <h2 class="section-title">⬛ 이곳은?</h2>
+            <div class="about-blocks">
+                <div class="block">
+                    <h3>브루탈리즘</h3>
+                    <p>모서리는 각지고, 색은 터지고, 규칙은 없다. 강남 셔츠룸 컨셉의 마포 힙플레이스 카페. 우리는 예쁜 척 안 한다.</p>
+                </div>
+                <div class="block">
+                    <h3>네온 보이드</h3>
+                    <p>검정과 빨강, 그리고 충돌. 네온 사인 아래서 마시는 커피는 세상을 뒤집는 맛. 규격은 없다. 오직 즐거움뿐.</p>
+                </div>
+                <div class="block">
+                    <h3>24/7</h3>
+                    <p>매일 오전 10시부터 밤 11시까지. 문은 열려있다. 들어오면 셔츠룸의 분위기에 잠길 준비를 해라.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- UGC 리뷰 -->
+        <section id="review">
+            <h2 class="section-title">⬛ 리얼 보이스</h2>
+            <div class="review-grid">
+                <div class="review-card">
+                    <div class="author">
+                        <span>🔥 핵창렬</span>
+                        <span class="stars">★★★★★</span>
+                    </div>
+                    <div class="date">2025-03-21</div>
+                    <div class="content">여기 분위기 실화냐? 강남 셔츠룸 오마주라는 게 이렇게 쩔줄이야. 커피 맛도 있고 인테리어가 미쳤다. 또 올게</div>
+                </div>
+                <div class="review-card">
+                    <div class="author">
+                        <span>⚡ 네온맛폭격기</span>
+                        <span class="stars">★★★★★</span>
+                    </div>
+                    <div class="date">2025-03-18</div>
+                    <div class="content">마포에 이런 곳이 있었다니. 벽에 붙은 문구들도 빡치게 하는데 왜 자꾸 가고 싶냐. 중독성 강함</div>
+                </div>
+                <div class="review-card">
+                    <div class="author">
+                        <span>💀 셔츠조아</span>
+                        <span class="stars">★★★★☆</span>
+                    </div>
+                    <div class="date">2025-03-15</div>
+                    <div class="content">처음엔 좀 쫄았는데 막상 앉아보니 편하네. 직원들도 힙하다. 별 하나 뺀 이유는 주차가 빡셈. 그래도 또 올 의향 200%</div>
+                </div>
+                <div class="review-card">
+                    <div class="author">
+                        <span>🖤 다크호스</span>
+                        <span class="stars">★★★★★</span>
+                    </div>
+                    <div class="date">2025-03-10</div>
+                    <div class="content">강남 셔츠룸 컨셉이라는 게 약간 맘에 안 들었는데 직접 와보니 이해됨. 여기는 그냥 자체로 존예다. 브루탈리즘 끝판왕</div>
+                </div>
+                <div class="review-card">
+                    <div class="author">
+                        <span>🔴 레드존</span>
+                        <span class="stars">★★★★★</span>
+                    </div>
+                    <div class="date
 </body>
 </html>

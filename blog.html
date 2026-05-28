@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>블로그 — 강남 셔츠룸 마포 카페</title>
+    <meta name="description" content="마포 힙플레이스 카페의 블로그. 강남 셔츠룸의 거침없는 브루탈리즘 정신을 담은 첫 번째 포스트: 진짜 힙은 왜 가짜를 용서하지 않는가?">
+    <meta name="keywords" content="강남 셔츠룸, 마포 카페 블로그, 브루탈리즘, 힙플레이스, 네온 카페, 이색 카페, 서울 카페">
+    <meta name="bpaas-design-system" content="brutalist-avantgarde">
+    <meta name="bpaas-design-theme" content="kr-neon-void">
+    <link rel="canonical" href="https://sf-t3-1779642675702-498.pages.dev/blog">
+    <meta property="og:title" content="블로그 | 강남 셔츠룸 마포 카페">
+    <meta property="og:description" content="거침없는 브루탈리즘 카페의 첫 번째 선언문. 가식은 여기서 죽는다. 오직 본능만 남았다.">
+    <meta property="og:image" content="https://sf-t3-1779642675702-498.pages.dev/og-blog.jpg">
+    <meta property="og:url" content="https://sf-t3-1779642675702-498.pages.dev/blog">
+    <style>
+        *, *::before, *::after { 
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        } 
+        html { 
+            font-size: 16px;
+            scroll-behavior: smooth;
+        } 
+        body { 
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: #0b0b0b;
+            color: #e0ddd5;
+            line-height: 1.4;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        body::before { 
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(255,255,255,0.015) 0px,
+                rgba(255,255,255,0.015) 1px,
+                transparent 1px,
+                transparent 3px
+            );
+            pointer-events: none;
+            z-index: 9999;
+        }
+        section, header, footer { 
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        section { 
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+        .gap-48 { 
+            height: 48px;
+        }
+        header { 
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #ff0066;
+            padding-bottom: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .logo { 
+            font-size: 1.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #ff0066;
+            text-shadow: 0 0 12px #ff006680, 2px 2px 0 #000;
+        }
+        .logo span { 
+            color: #e0ddd5;
+            text-shadow: none;
+        }
+        nav { 
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+        }
+        nav a { 
+            color: #e0ddd5;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            transition: 0.2s;
+            padding: 0.3rem 0;
+            border-bottom: 2px solid transparent;
+        }
+        nav a:hover { 
+            color: #ff0066;
+            border-bottom-color: #ff0066;
+        }
+        .cta-header {
+            background: #ff0066;
+            color: #0b0b0b;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            font-weight: 900;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-left: 1rem;
+        }
+        .cta-header:hover {
+            background: #e0ddd5;
+            color: #0b0b0b;
+            box-shadow: 0 0 20px #ff006660;
+        }
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            nav {
+                width: 100%;
+                justify-content: space-between;
+                gap: 0.5rem;
+            }
+            nav a {
+                font-size: 0.75rem;
+            }
+            .cta-header {
+                margin-left: 0;
+                width: 100%;
+                text-align: center;
+            }
+        }
+        /* 블로그 전용 스타일 (기존 시스템과 동일한 패턴 사용) */
+        .blog-post {
+            border-left: 6px solid #ff0066;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+        }
+        .blog-post h1 {
+            font-size: 3.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            line-height: 1;
+            color: #fff;
+            margin: 0 0 0.5rem 0;
+            text-shadow: 4px 4px 0 #ff006680;
+        }
+        .blog-post .meta {
+            font-size: 0.85rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #ff006630;
+            padding-bottom: 0.8rem;
+        }
+        .blog-post p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            color: #d0ccc4;
+        }
+        .blog-post blockquote {
+            border-left: 4px solid #ff0066;
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #ff0066;
+            font-weight: 700;
+            background: rgba(255,0,102,0.05);
+            padding: 1rem 1.5rem;
+        }
+        .blog-post .highlight-box {
+            background: #1a1a1a;
+            border: 2px solid #ff0066;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            color: #e0ddd5;
+        }
+        .blog-post .highlight-box strong {
+            color: #ff0066;
+        }
+        .blog-post a {
+            color: #ff0066;
+            text-decoration: underline wavy;
+        }
+        .blog-post a:hover {
+            background: #ff0066;
+            color: #0b0b0b;
+        }
+        .cta-section {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            background: #111;
+            border-top: 3px solid #ff0066;
+            border-bottom: 3px solid #ff0066;
+            margin: 3rem 0;
+        }
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 20px #ff006680;
+        }
+        .cta-section p {
+            font-size: 1.1rem;
+            color: #ccc;
+            margin-bottom: 1.5rem;
+        }
+        .cta-section .tel {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #ff0066;
+            letter-spacing: 0.05em;
+        }
+        .cta-section .tel:hover {
+            text-shadow: 0 0 30px #ff0066;
+        }
+        footer {
+            border-top: 1px solid #333;
+            padding-top: 1.5rem;
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">강남<span>셔츠룸</span></div>
+        <nav>
+            <a href="/">홈</a>
+            <a href="/about">소개</a>
+            <a href="/menu">메뉴</a>
+            <a href="/blog" style="color: #ff0066; border-bottom-color: #ff0066;">블로그</a>
+            <a href="/contact">콘택트</a>
+        </nav>
+        <a href="tel:010-6279-0862" class="cta-header">☎ 지금 예약</a>
+    </header>
+
+    <section>
+        <div class="blog-post">
+            <h1>가식은 여기서 죽는다</h1>
+            <div class="meta">2025.06.12 · 작성자: 운영자 · 카테고리: 선언문</div>
+            
+            <p>들어봐, 형. 너 지금까지 본 카페들은 다 똑같아. 인스타용 조명, 빈티지 가구, 핸드드립 하는 척하는 바리스타. 거짓말이야. 그 모든 게 연출된 가짜 힙이야. 여기 강남 셔츠룸 마포점은 달라. 우리는 네온 사인 아래서 가면을 벗어.</p>
+
+            <p>브루탈리즘 콘크리트 위에 직접 써 내려간 메뉴, 형편없이 거친 질감의 테이블, 그리고 벽을 뒤덮은 네온. <strong>왜?</strong> 왜냐하면 진짜 힙은 꾸밈없이 자기 자신을 드러내는 거니까. 너도 알지? 강남에서 셔츠룸 갈 돈으로 여기 오면 너는 진짜를 얻게 돼.</p>
+
+            <blockquote>"여긴 가식이 용납되지 않는다. 너의 본능을 깨워라."</blockquote>
+
+            <p>커피는 진하게, 와인은 거칠게, 음악은 귀를 찢어. 우리 바리스타는 예술가가 아니라 그냥 술 취한 천재야. 그가 내리는 에스프레소는 마치 주먹 한 방 같아. 첫 모금부터 네 혀를 때리고 정신을 차리게 해.</p>
+
+            <div class="highlight-box">
+                <strong>🐉 강남 셔츠룸의 핵심 규칙:</strong><br>
+                1. 핸드폰은 내려놓아라. 여기선 눈을 마주쳐야 한다.<br>
+                2. 네온 아래서 셀카 찍지 마. 그냥 경험해.<br>
+                3. 주문은 거칠게. '에스프레소 더블'이라고 말해. '디카페인 라떼'는 다른 데 가라.<br>
+                4. 전화 예약은 선택이 아니라 필수다. <a href="tel:010-6279-0862">010-6279-0862</a>
+            </div>
+
+            <p>마포라는 동네는 원래 예술가와 술꾼, 미치광이의 땅이었어. 그런데 요즘 와서는 인스타 감성 카페가 들끓고 있어. 역겨워. 그래서 우리가 왔다. 강남의 화려함과 마포의 거친 에너지를 섞었다. 결과는? 말이 필요 없어. 직접 와서 느껴.</p>
+
+            <p>블로그에 글을 쓰는 이유는 단 하나야: 너에게 경고하려고. 이곳은 평범한 데이트 장소가 아니야. 첫 방문에 실망할 수도 있어. 왜냐면 우리는 너를 즐겁게 해주려고 존재하는 게 아니니까. 우리는 너에게 <strong>진짜 순간</strong>을 선사할 뿐이야. 그리고 그 순간은 대부분 불편하고 아프고, 그 다음에야 비로소 찬란해져.</p>
+
+            <p>자, 이제 선택은 네 몫이야. 계속 가짜 힙에 취해 살든가, 아니면 전화를 걸어 <a href="tel:010-6279-0862">010-6279-0862</a> 진짜를 맛보러 와. 강남 셔츠룸 마포점은 네가 결정하는 순간을 기다리고 있어. 우리의 네온은 24시간 꺼지지 않는다. 하지만 사람은 영원하지 않아. 오늘 오지 않으면 내일은 없을지도 몰라.</p>
+        </div>
+
+        <div class="cta-section">
+            <h2>지금 당장 예약해</h2>
+            <p>네가 진짜를 찾고 있다면, 주저할 시간이 없다. 전화 한 통이면 끝이야.</p>
+            <a href="tel:010-6279-0862" class="tel">010-6279-0862</a>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">강남 셔츠룸 — 마포구 힙플레이스 1번지</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 강남 셔츠룸 마포 · 브루탈리즘 카페 · 모든 권리는 거칠게 보호됨</p>
+        <p style="margin-top: 0.5rem;">본 사이트는 가식 없는 콘텐츠를 지향합니다</p>
+    </footer>
+</body>
+</html>
